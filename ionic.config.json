@@ -1,0 +1,7 @@
+{
+  "name": "EjerProductos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
