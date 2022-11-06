@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Producto: {{product.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img [src]="product.photo"/>
+    <ion-card-header>
+      <ion-card-tittle>
+        <ion-label>
+          Nombre: {{product.name}}
+        </ion-label>
+      </ion-card-tittle>
+      <ion-card-subtitle>
+        Precio: ${{product.price}}
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+</ion-content>
