@@ -16,7 +16,7 @@
       <ion-col>
         <ion-list>
           <ion-item-sliding *ngFor="let item of products; let i=item" >
-          <ion-item  (click)="getProductById(item.nc)">
+          <ion-item  (click)="getProductById(item.id)">
             <ion-img [src]="item.photo">
             </ion-img>
             <ion-label>

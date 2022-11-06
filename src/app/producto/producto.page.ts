@@ -22,7 +22,6 @@ export class ProductoPage implements OnInit {
     this.aroute.queryParams.subscribe((params)=>{
       this.product = this.productService.getProductById(params.id);
       });
-//params.controlnumber
   }
 
 }

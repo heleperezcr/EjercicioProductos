@@ -46,7 +46,7 @@ export class ProductoService {
     let item: Producto;
      item = this.products.find(
       (product)=>{
-    return product.id===id;
+    return product.id==id;
     });
     return item;
   }

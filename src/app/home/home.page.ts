@@ -21,8 +21,8 @@ export class HomePage {
     }
 
     public getProductById(id:string):void{
-      this.router.navigate(['producto'],{
-        queryParams:{id:id},
+      this.router.navigate(['/producto'],{
+        queryParams:{id:id}
       });
     }
 
