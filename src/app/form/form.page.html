@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Añadir producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <form (ngSubmit)="addProduct()">
+        <div class="formulario">
+          <div class="campo">
+            <label>Foto</label>
+            <ion-input type="text" class="inputForm" name="photo" [(ngModel)]="photo" required placeholder="URL de imagen"></ion-input>
+          </div>
+          <div class="campo">
+            <label>Nombre</label>
+            <ion-input type="text" class="inputForm" name="name" [(ngModel)]="name" required placeholder="Nombre del producto"></ion-input>
+          </div>
+          <div class="campo">
+            <label>Precio</label>
+            <ion-input type="number" class="inputForm" name="price" [(ngModel)]="price" required placeholder="Precio del articulo"></ion-input>
+          </div>
+          <ion-button id="botonRegistro" type="submit" >Añadir</ion-button>
+        </div>
+      </form>
+    </ion-col>
+  </ion-row>
+</ion-content>

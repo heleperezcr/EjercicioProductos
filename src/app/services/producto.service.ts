@@ -51,4 +51,8 @@ export class ProductoService {
     return item;
   }
 
+  public addProduct(product:Producto){
+    this.products.push(product);
+  }
+
 }
