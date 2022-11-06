@@ -20,9 +20,9 @@ export class HomePage {
       this.products = this.productService.getProducts();
     }
 
-    public getProductById(cn:string):void{
-      this.router.navigate(['/product'],{
-        queryParams:{cn:cn},
+    public getProductById(id:string):void{
+      this.router.navigate(['producto'],{
+        queryParams:{id:id},
       });
     }
 

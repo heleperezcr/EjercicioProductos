@@ -42,11 +42,11 @@ export class ProductoService {
     return this.products
   }
 
-  public getProductById(nc:number):Producto{
+  public getProductById(id:number):Producto{
     let item: Producto;
      item = this.products.find(
       (product)=>{
-    return product.id===nc;
+    return product.id===id;
     });
     return item;
   }

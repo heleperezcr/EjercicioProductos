@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Producto } from '../model/producto';
 import { ProductoService } from '../services/producto.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto',
@@ -18,12 +19,9 @@ export class ProductoPage implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.aroute.queryParams.subscribe(
-      (params)=>{
-        console.log(params);
-      }
-    );
-    this.product = this.productService.getProductById(2);
+    this.aroute.queryParams.subscribe((params)=>{
+      this.product = this.productService.getProductById(params.id);
+      });
 //params.controlnumber
   }
 
