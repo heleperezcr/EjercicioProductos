@@ -16,23 +16,32 @@
       <ion-col>
         <ion-list>
           <ion-item-sliding *ngFor="let item of products; let i=item" >
-          <ion-item  (click)="getProductById(item.id)">
-            <ion-img [src]="item.photo">
+          <ion-item>
+            <ion-img (click)="getProductById(item.id)" [src]="item.photo">
             </ion-img>
-            <ion-label>
+            <ion-label (click)="getProductById(item.id)">
               {{item.name}}
             </ion-label>
-            <ion-label >
+            <ion-label (click)="getProductById(item.id)" >
               <strong>${{item.price}}</strong>
             </ion-label>
             <ion-label>
-              <ion-button expand="block" type="submit">
+              <ion-button expand="block" (click)="addCarrito(item)">
                 <ion-icon name="cart-outline"></ion-icon>
               </ion-button>
             </ion-label>
           </ion-item>
         </ion-item-sliding>
         </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-fab>
+          <ion-fab-button [routerLink]="['/carrito']">
+            <ion-icon name="cart-outline" ></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
       </ion-col>
     </ion-row>
 </ion-content>

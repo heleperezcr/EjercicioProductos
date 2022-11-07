@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'form',
     loadChildren: () => import('./form/form.module').then( m => m.FormPageModule)
   },
+  {
+    path: 'carrito',
+    loadChildren: () => import('./carrito/carrito.module').then( m => m.CarritoPageModule)
+  },
 
 ];
 
