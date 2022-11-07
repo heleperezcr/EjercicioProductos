@@ -31,5 +31,10 @@ export class CarritoService {
     this.carrito.push(prodCarrito);
   }
 
+  public removeProduct(pos: number): Carrito[]{
+    this.carrito.splice(pos, 1);
+    return this.carrito;
+  }
+
 
 }

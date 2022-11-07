@@ -19,19 +19,19 @@ export class ProductoService {
       {
         id: 2,
         name: "Cloro",
-        price: 20,
+        price: 18,
         photo:'https://picsum.photos/100/?random=2'
       },
       {
         id: 3,
         name: "Fabuloso",
-        price: 20,
+        price: 27,
         photo:'https://picsum.photos/100/?random=3'
       },
       {
         id: 4,
         name: "Pinol",
-        price: 20,
+        price: 32,
         photo:'https://picsum.photos/100/?random=4'
       }
     ]
