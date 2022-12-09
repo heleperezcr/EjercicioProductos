@@ -16,13 +16,13 @@
       <ion-col>
         <ion-list>
           <ion-item-sliding *ngFor="let item of products; let i=item" >
-          <ion-item>
-            <ion-img (click)="getProductById(item.id)" [src]="item.photo">
+          <ion-item >
+            <ion-img (click)="getProductByID(item.id)" [src]="item.photo">
             </ion-img>
-            <ion-label (click)="getProductById(item.id)">
+            <ion-label (click)="getProductByID(item.id)">
               {{item.name}}
             </ion-label>
-            <ion-label (click)="getProductById(item.id)" >
+            <ion-label (click)="getProductByID(item.id)" >
               <strong>${{item.price}}</strong>
             </ion-label>
             <ion-label>  
@@ -31,7 +31,12 @@
               </ion-button>
             </ion-label>
           </ion-item>
-        </ion-item-sliding>
+          <ion-item-options side="end" (ionSwipe)="removeProduct(item.id)">
+            <ion-item-option expandable color="danger">
+                <ion-icon name="trash-outline"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+        </ion-item-sliding> 
         </ion-list>
       </ion-col>
     </ion-row>

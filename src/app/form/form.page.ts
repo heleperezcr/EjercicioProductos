@@ -45,12 +45,13 @@ export class FormPage implements OnInit {
 
   //
   public newProduct() {
+    //let cont = this.productService.getProducts.length
     this.product = {
-      id:2,
-      photo:this.photo,
+      ids:1,
+      photo:this.photo, 
       name:this.name,
       price:this.price,
-    }
+    } 
 
     this.productService.newProduct(this.product);
     //this.presentToast('top');

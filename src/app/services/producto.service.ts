@@ -12,32 +12,32 @@ export class ProductoService {
   private products: Producto[];
 
   constructor(private firestore: AngularFirestore) { 
-    this.products = [
+    /*this.products = [
       {
-        id: 1,
+        ids: 1,
         name: "Jabon",
         price: 20,
         photo:'https://picsum.photos/100/?random=1'
       },
       {
-        id: 2,
+        ids: 2,
         name: "Cloro",
         price: 18,
         photo:'https://picsum.photos/100/?random=2'
       },
       {
-        id: 3,
+        ids: 3,
         name: "Fabuloso",
         price: 27,
         photo:'https://picsum.photos/100/?random=3'
       },
       {
-        id: 4,
+        ids: 4,
         name: "Pinol",
         price: 32,
         photo:'https://picsum.photos/100/?random=4'
       }
-    ]
+    ]*/
 
   }
  
@@ -57,30 +57,24 @@ export class ProductoService {
     this.firestore.collection('productos').add(student)
   }
 
-
-
-
-
-
-
-
-
-
-  public getProducts():Producto[]{
-    return this.products
+  public getProductByID(id: string){
+    let result = this.firestore.collection('productos').doc(id).valueChanges();
+    return result;
   }
 
-  public getProductById(id:number):Producto{
-    let item: Producto;
-     item = this.products.find(
-      (product)=>{
-    return product.id==id;
-    });
-    return item;
+  public removeProduct(id:string) {
+    this.firestore.collection('productos').doc(id).delete();
   }
 
-  public addProduct(product:Producto){
-    this.products.push(product);
-  }
+
+
+
+
+//--------------------------------------
+
+
+
+
+
 
 }

@@ -17,7 +17,7 @@ export class HomePage {
 
 
   constructor(
-    private alertcntroller: AlertController,
+    private alertController: AlertController,
     private productService:ProductoService,
     private router:Router,
     private carritoService:CarritoService
@@ -30,7 +30,39 @@ export class HomePage {
       //this.products = this.productService.getProducts();
     }
 
+    public getProductByID(id: string) {
+      this.router.navigate(['/producto'], {
+        queryParams: {
+          id: id
+        }
+      })
+      this.productService.getProductByID(id);
+    }
 
+    public async removeProduct(id: string) {
+      const alert = await this.alertController.create({
+        header: 'Confirmación',
+        subHeader: '¿Estás seguro que deseas eliminar?',
+        message: 'Esto es una confirmación',
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            handler: () => {
+  
+            }
+          },
+          {
+            text: 'Aceptar',
+            role: 'confirm',
+            handler: () => {
+              this.productService.removeProduct(id);
+            }
+          }
+        ]
+      });
+      await alert.present();
+    }
 
 
 
@@ -45,11 +77,7 @@ export class HomePage {
 
     //------------------------------------------
 
-    public getProductById(id:string):void{
-      this.router.navigate(['/producto'],{
-        queryParams:{id:id}
-      });
-    }
+    
 
     
   public addCarrito(prod:Producto){
@@ -58,5 +86,5 @@ export class HomePage {
     }
     this.carritoService.addCarrito(c);
   }
-
+ 
 }
