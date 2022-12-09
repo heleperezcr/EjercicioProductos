@@ -54,6 +54,18 @@ export class ProductoService {
     )
   }
 
+  public getCarrito(): Observable<Producto[]> {
+    return this.firestore.collection('carrito').snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Producto;
+          const id = a.payload.doc.id;
+          return {id, ...data };
+        });
+      })
+    )
+  }
+
   public newProduct(student: Producto){
     this.firestore.collection('productos').add(student)
   }
@@ -65,6 +77,10 @@ export class ProductoService {
 
   public removeProduct(id:string) {
     this.firestore.collection('productos').doc(id).delete();
+  }
+
+  public removeCarrito(id:string) {
+    this.firestore.collection('carrito').doc(id).delete();
   }
 
   public newCarrito(student: Producto){
