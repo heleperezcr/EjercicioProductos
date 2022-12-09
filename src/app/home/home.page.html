@@ -5,7 +5,7 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
+   
 <ion-content [fullscreen]="true">
   <ion-row>
       <ion-col>
@@ -26,7 +26,7 @@
               <strong>${{item.price}}</strong>
             </ion-label>
             <ion-label>  
-              <ion-button expand="block" (click)="addCarrito(item)">
+              <ion-button expand="block" (click)="addCarrito(item, item.id)">
                 <ion-icon name="cart-outline"></ion-icon>
               </ion-button>
             </ion-label>
@@ -43,7 +43,7 @@
     <ion-row>
       <ion-col>
         <ion-fab>
-          <ion-fab-button [routerLink]="['/carrito']">
+          <ion-fab-button (click)="goToCarrito()">
             <ion-icon name="cart-outline" ></ion-icon>
           </ion-fab-button>
         </ion-fab>

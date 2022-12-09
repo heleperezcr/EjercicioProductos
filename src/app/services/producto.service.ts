@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class ProductoService {
 
   private products: Producto[];
+  public con:number;
 
   constructor(private firestore: AngularFirestore) { 
     /*this.products = [
@@ -66,7 +67,9 @@ export class ProductoService {
     this.firestore.collection('productos').doc(id).delete();
   }
 
-
+  public newCarrito(student: Producto){
+    this.firestore.collection('carrito').add(student)
+  }
 
 
 

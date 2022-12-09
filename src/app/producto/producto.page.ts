@@ -23,8 +23,8 @@ export class ProductoPage implements OnInit {
         price:0,
         photo:''
       }
-    }
-
+    } 
+ 
   ngOnInit() {
     /*this.aroute.queryParams.subscribe((params)=>{
       this.product = this.productService.getProductById(params.id);
