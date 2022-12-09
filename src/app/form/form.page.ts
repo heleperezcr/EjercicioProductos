@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Producto } from '../model/producto';
 import { ProductoService } from '../services/producto.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-form',
@@ -10,21 +12,24 @@ import { ProductoService } from '../services/producto.service';
 })
 export class FormPage implements OnInit {
   public products: Producto[];
-  public product : Producto;
   public photo:string;
   public name:string;
   public price:number;
   public prods:Producto[];
+  //
+  public product : Producto;
 
-  constructor(private productService:ProductoService,
-    private router:Router) {
-    this.products = this.productService.getProducts();
-   }
+  constructor(
+    private productService:ProductoService,
+    private router:Router) 
+    {
+    //this.products = this.productService.getProducts();
+    }
 
   ngOnInit() {
   }
 
-  public addProduct(){
+  /*public addProduct(){
     this.prods = this.productService.getProducts();
     let id = this.prods.length
     this.product={
@@ -36,6 +41,21 @@ export class FormPage implements OnInit {
     this.productService.addProduct(this.product);
     this.products = this.productService.getProducts();
     this.router.navigateByUrl('/home',{replaceUrl:true});
+  }*/
+
+  //
+  public newProduct() {
+    this.product = {
+      id:2,
+      photo:this.photo,
+      name:this.name,
+      price:this.price,
+    }
+
+    this.productService.newProduct(this.product);
+    //this.presentToast('top');
+    console.log(this.product);
+    this.router.navigate(['..']);
   }
 
 }

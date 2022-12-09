@@ -12,7 +12,7 @@ import { Carrito } from '../model/carrito';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  public products : Producto[]
+  public products : Producto[];
   public carrito : Carrito[]
 
 
@@ -22,8 +22,28 @@ export class HomePage {
     private router:Router,
     private carritoService:CarritoService
     ) {
-      this.products = this.productService.getProducts();
+      this.productService.getProductos().subscribe(res => {
+        this.products = res;
+        console.log(this.products)
+      })
+      //
+      //this.products = this.productService.getProducts();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //------------------------------------------
 
     public getProductById(id:string):void{
       this.router.navigate(['/producto'],{

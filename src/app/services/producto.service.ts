@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Producto } from '../model/producto';
+import { map } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +11,7 @@ export class ProductoService {
 
   private products: Producto[];
 
-  constructor() { 
+  constructor(private firestore: AngularFirestore) { 
     this.products = [
       {
         id: 1,
@@ -37,6 +40,31 @@ export class ProductoService {
     ]
 
   }
+ 
+  public getProductos(): Observable<Producto[]> {
+    return this.firestore.collection('productos').snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Producto;
+          const id = a.payload.doc.id;
+          return {id, ...data };
+        });
+      })
+    )
+  }
+
+  public newProduct(student: Producto){
+    this.firestore.collection('productos').add(student)
+  }
+
+
+
+
+
+
+
+
+
 
   public getProducts():Producto[]{
     return this.products
